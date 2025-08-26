@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import HomeTapBar from "./home-tap-bar";
 import { productType } from "@/constants/data";
 import { client } from "@/sanity/lib/client";
@@ -36,9 +36,22 @@ const ProductGrid = () => {
     fetchData();
   }, [selectedTap]);
 
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  const scrollToWithOffset = (element: HTMLElement, offset: number) => {
+    const y = element.getBoundingClientRect().top + window.scrollY;
+    window.scrollTo({ top: y - offset, behavior: "smooth" });
+  };
+
+  const scrollToFirstSection = () => {
+    if (ref.current) {
+      scrollToWithOffset(ref.current, 50);
+    }
+  };
+
   return (
-    <div>
-      <HomeTapBar selectedTap={selectedTap} onTapSelected={setSelectedTap} />
+    <div ref={ref} className="py-10">
+      <HomeTapBar selectedTap={selectedTap} onTapSelected={setSelectedTap} onClick={scrollToFirstSection} />
       {
         loading ? (
           <div className="flex items-center justify-center rounded-lg

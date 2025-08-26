@@ -1,5 +1,4 @@
 import { cn } from '@/lib/utils'
-import React from 'react'
 import PriceFormatter from './price-formatter'
 
 interface Props {

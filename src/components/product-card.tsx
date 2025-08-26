@@ -4,7 +4,7 @@ import { urlFor } from '@/sanity/lib/image'
 import Link from 'next/link';
 import { Flame, StarIcon } from 'lucide-react';
 import AddToWishListButton from './add-to-wish-list-button';
-import { Title } from './ui/text';
+import { Title } from './text';
 import PriceView from './price-view';
 import AddToCartButton from './add-to-cart-button';
 import { CardCarousel } from './card-carousel';
