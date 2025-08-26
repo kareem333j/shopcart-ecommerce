@@ -5,7 +5,9 @@ import Link from 'next/link';
 import { Flame, StarIcon } from 'lucide-react';
 import AddToWishListButton from './add-to-wish-list-button';
 import { Title } from './ui/text';
-import ProceView from './price-view';
+import PriceView from './price-view';
+import AddToCartButton from './add-to-cart-button';
+import { CardCarousel } from './card-carousel';
 
 const ProductCard = ({ product }: { product: Product }) => {
     return (
@@ -13,16 +15,9 @@ const ProductCard = ({ product }: { product: Product }) => {
         bg-white group'>
             <div className='relative overflow-hidden bg-shop-light-bg group'>
                 {product?.images && (
-                    <Image
-                        src={urlFor(product?.images[0]).url()}
-                        alt='ProductImage'
-                        width={700}
-                        height={700}
-                        loading='lazy'
-                        className={`w-full h-64 object-contain overflow-hidden
-                            transition-transform hoverEffect bg-shop-light-bg
-                            ${product?.stock !== 0 ? "group-hover:scale-105" : "obacity-50"}`}
-                    />
+                    <div className="mx-auto max-w-xs py-2 relative">
+                        <CardCarousel product={product} />
+                    </div>
                 )}
                 <AddToWishListButton product={product} />
                 {
@@ -82,7 +77,7 @@ const ProductCard = ({ product }: { product: Product }) => {
                 </div>
                 <div className='flex items-center justify-between'>
                     <p className='font-medium'>In Stock</p>
-                    <p className={(product?.stock as number) === 0? "text-red-600 hoverEffect":"font-semibold text-shop-light-green/90"}>
+                    <p className={(product?.stock as number) === 0 ? "text-red-600 hoverEffect" : "font-semibold text-shop-light-green/90"}>
                         {
                             (product?.stock as number) > 0 ?
                                 "x" + product?.stock
@@ -92,13 +87,16 @@ const ProductCard = ({ product }: { product: Product }) => {
                                     <span className='w-0 h-0.25 bg-red-600 group-hover:w-full hoverEffect'></span>
                                 </span>
                         }
-                        
+
                     </p>
                 </div>
-                <ProceView
+                <PriceView
                     price={product?.price}
                     discount={product?.discount}
-                    className='text-sm'
+                />
+                <AddToCartButton
+                    product={product}
+                    className='w-full rounded-lg'
                 />
             </div>
         </div>

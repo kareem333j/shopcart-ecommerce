@@ -8,7 +8,7 @@ interface Props {
   className?: string
 }
 
-const ProceView = ({
+const PriceView = ({
   price,
   discount,
   className
@@ -26,4 +26,4 @@ const ProceView = ({
   )
 }
 
-export default ProceView
+export default PriceView;
