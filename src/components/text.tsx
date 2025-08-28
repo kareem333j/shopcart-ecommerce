@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils"
 
 const Title = ({children, className}:{children:React.ReactNode, className?:string})=>{
     return(
-        <h1 className={cn("text-3xl font-bold text-shop-btn-dark-green capitalize tracking-wide font-sans",className)}>
+        <h1 className={cn("text-2xl font-bold text-shop-btn-dark-green capitalize tracking-wide font-sans",className)}>
             {children}
         </h1>
     )

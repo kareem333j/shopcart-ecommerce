@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FC } from 'react'
+import { FC } from 'react'
 import Logo from './logo';
 import { X } from 'lucide-react';
 import { headerData } from '@/constants/data';

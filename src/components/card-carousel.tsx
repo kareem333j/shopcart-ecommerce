@@ -46,7 +46,7 @@ export function CardCarousel({ product, className }: { product: Product, classNa
                         )
                     }
                 </CarouselContent>
-                <CarouselPrevious className="absolute top-2/4 left-2" />
+                <CarouselPrevious className='absolute top-2/4 left-2' />
                 <CarouselNext className="absolute top-2/4 right-2" />
             </Carousel>
             <div className="flex justify-center mt-2 gap-2">

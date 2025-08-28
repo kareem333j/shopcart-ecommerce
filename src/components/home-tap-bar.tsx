@@ -1,7 +1,6 @@
 "use client";
 import { productType } from '@/constants/data'
 import Link from 'next/link'
-import React, { useEffect, useRef, useState } from 'react'
 
 const HomeTapBar = ({ selectedTap, onTapSelected, onClick }: { selectedTap: string, onTapSelected: (title: string) => void , onClick: () => void }) => {
 
